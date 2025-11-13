@@ -5,8 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
     <title>Product Launch</title>
+
+    <!-- GSAP CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
   </head>
   <body>
-    <script src="js/index.js"></script>
+    <!-- MODAL -->
+    <section id="modal" class="modal-container hide-modal">
+      <!-- shader -->
+      <div class="shader"></div>
+
+      <!-- close button -->
+      <button
+        id="close-modal--button"
+        class="close-modal--button"
+        onclick="closeModal()"
+      >
+        <div id="top-bar"></div>
+        <div id="bottom-bar"></div>
+      </button>
+
+      <!-- text -->
+      <p class="modal-text">
+        Sorry, you can't pre-order at this time. Pineapple team have disabled
+        this feature because they're on vacation. Come back in 2028 ⛱️🙂.
+      </p>
+    </section>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <!-- hero title -->
+      <h1 id="hero-title" class="hero-section--title">
+        Introducing New Aloha 16 By Pineapple.
+      </h1>
+
+      <!-- radial gradient -->
+      <div id="radial-gradient" class="radial-gradient">
+        <div></div>
+      </div>
+
+      <!-- hero image -->
+      <div id="hero-image--container" class="hero-section--image---container">
+        <img
+          id="hero-image"
+          class="image"
+          src="/images/back-view.png"
+          alt="image of smartphone from pineapple"
+        />
+      </div>
+
+      <!-- pre order button -->
+      <button
+        id="hero-button"
+        class="hero-section--button"
+        onclick="preOrder()"
+      >
+        Pre-order Now
+      </button>
+    </section>
+
+    <!-- STORY SECTION -->
+    <section id="story" class="story-section">
+      <!-- first story -->
+      <div id="iris">
+        <img id="iris" src="/images/iris.png" alt="" />
+
+        <p id="iris-text">
+          Meet Iris, Siri's cousin. The only voice assistant that responds when
+          she feels like it. She’ll set your alarms, answer your questions, and
+          occasionally recommend the nearest beach instead. Iris doesn't work on
+          the weekends so don't even try.
+        </p>
+      </div>
+
+      <!-- second story -->
+      <div id="iris">
+        <img id="juice-mode" src="/images/juice.png" alt="" />
+
+        <p id="juice-mode--text">
+          When your battery runs low, Pineapple asks for one thing.. juice. Not
+          electricity. Juice! Just pour a glass of pineapple juice near the
+          charging port. There have been claims this does nothing, but we at
+          pineapple swear it helps.
+        </p>
+      </div>
+
+      <!-- third story -->
+      <div id="iris">
+        <img id="pineapple-core" src="/images/cloud.png" alt="" />
+
+        <p id="pineapple-core--text">
+          PineappleCore stores all your files somewhere deep inside the
+          Pineapple ecosystem. Where exactly? No one knows. Syncs only on sunny
+          days. Backups may be lost during tropical storms.
+        </p>
+      </div>
+    </section>
+
+    <script src="js/index.js" defer></script>
   </body>
 </html>

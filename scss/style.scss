@@ -1,0 +1,307 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+$rich-black: #0b1220ff;
+$rich-black-2: #0d1423ff;
+$rich-black-3: #050810ff;
+$gunmetal: hsl(221, 51, 10);
+$rich-black-4: #070b15ff;
+
+$purple-color: #5431b7;
+$blue-color: #1647eb;
+
+/* CSS RESET */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Set core root defaults */
+html {
+  line-height: 1.5;
+  font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  background: $rich-black-3;
+  min-height: 100dvh;
+  margin: 0;
+  padding: 0;
+  text-rendering: optimizeSpeed;
+  color: white;
+  font-size: 16px;
+}
+
+/* Update default margin */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+ul,
+ol,
+dl,
+dd {
+  margin: 0 0 1.5rem;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a {
+  text-decoration-skip-ink: auto;
+  color: $gunmetal;
+}
+â€‹a:hover,
+a:focus-visible {
+  color: $rich-black-2;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* No border or outline on buttons */
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- ANIMATIONS --- */
+
+/* --- MODAL --- */
+.hide-modal {
+  display: none;
+}
+
+.modal-container {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  padding: 30px;
+  z-index: 100;
+
+  .shader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #1f1f1f;
+    opacity: 0.9;
+  }
+
+  button {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+
+    div {
+      position: absolute;
+      height: 3px;
+      width: 22px;
+      background-color: white;
+      border-radius: 30px;
+      transform-origin: center;
+    }
+  }
+
+  p {
+    position: relative;
+    font-size: 18px;
+    letter-spacing: 0.1rem;
+    z-index: 100;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    margin-top: 1.5rem;
+    font-size: 1.6rem;
+    text-align: center;
+    max-width: 80%;
+    z-index: 50;
+  }
+}
+
+.radial-gradient {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  height: 320px;
+  width: 320px;
+  border-radius: 100%;
+  background: linear-gradient(to bottom, $purple-color, $blue-color);
+  padding: 2px;
+  box-shadow: 0 0 10px rgba(84, 49, 183, 0.9), 0 0 20px rgba(22, 71, 235, 0.7);
+
+  div {
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+    background-color: $rich-black-3;
+  }
+}
+
+.hero-section--image---container {
+  position: absolute;
+  top: 5%;
+  height: 95%;
+  width: 100%;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.hero-section--button {
+  position: absolute;
+  bottom: 1.5rem;
+  padding: 0.4rem 0.65rem;
+  border-radius: 6px;
+  font-size: 14px;
+  background: linear-gradient(110deg, $purple-color 40%, $blue-color 100%);
+  color: white;
+}
+
+/* --- STORY SECTION | PARALLAX --- */
+.story-section {
+  position: relative;
+  height: 310vh;
+  width: 100%;
+  border: 1px solid red;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 5px;
+    height: 100vh;
+    width: 100%;
+    background-color: $rich-black-3;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  div:first-child {
+    position: sticky;
+    top: 0;
+  }
+
+  div:nth-child(2) {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  div:last-child {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+}
+
+/* --- RESPONSIVE DESIGN --- */
+/* --- TABLET --- */
+@media screen and (min-width: 768px) {
+  .hero-section h1 {
+    font-size: 2rem;
+    max-width: 70%;
+  }
+
+  .radial-gradient {
+    height: 550px;
+    width: 550px;
+  }
+
+  .hero-section--button {
+    padding: 0.75rem 0.85rem;
+  }
+}
+
+/* --- DESKTOP --- */
+@media screen and (min-width: 1024px) {
+  .hero-section h1 {
+    font-size: 3rem;
+    max-width: 60%;
+  }
+
+  .radial-gradient {
+    height: 400px;
+    width: 400px;
+  }
+
+  .hero-section--image---container {
+    position: absolute;
+    top: 5%;
+    height: 95%;
+    width: 100%;
+
+    img {
+      object-fit: contain;
+    }
+  }
+}
