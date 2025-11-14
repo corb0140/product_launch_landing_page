@@ -11,8 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
   </head>
   <body>
-    <!-- MODAL -->
-    <section id="modal" class="modal-container hide-modal">
+    <!-- MODALS -->
+    <section id="pre-order--modal" class="modal-container hide-modal">
       <!-- shader -->
       <div class="shader"></div>
 
@@ -31,6 +31,26 @@
         Sorry, you can't pre-order at this time. Pineapple team have disabled
         this feature because they're on vacation. Come back in 2028 ⛱️🙂.
       </p>
+    </section>
+
+    <section id="learn-more--modal" class="modal-container hide-modal">
+      <!-- shader -->
+      <div class="shader"></div>
+
+      <!-- text -->
+      <p class="modal-text">
+        You're about to learn more 🎓. Please allow 3–5 business days for wisdom
+        to arrive.
+      </p>
+
+      <!-- COUNTDOWN -->
+      <div class="countdown-container">
+        <span>Closes in:</span>
+
+        <div class="modal-countdown">
+          <span id="countdown"></span>
+        </div>
+      </div>
     </section>
 
     <!-- HERO SECTION -->
@@ -69,19 +89,29 @@
     <section id="story" class="story-section">
       <!-- first story -->
       <div id="iris">
-        <img id="iris" src="/images/iris.png" alt="" />
+        <div>
+          <img src="/images/iris.png" alt="" />
+        </div>
+
+        <h2>Say Aloha to Iris. Siri's Cousin.</h2>
 
         <p id="iris-text">
-          Meet Iris, Siri's cousin. The only voice assistant that responds when
-          she feels like it. She’ll set your alarms, answer your questions, and
-          occasionally recommend the nearest beach instead. Iris doesn't work on
-          the weekends so don't even try.
+          Meet Iris. The only voice assistant that responds when she feels like
+          it. She’ll set your alarms, answer your questions, and occasionally
+          recommend the nearest beach instead. Iris doesn't work on the weekends
+          so don't even try.
         </p>
+
+        <button class="story-section--button">Learn More</button>
       </div>
 
       <!-- second story -->
-      <div id="iris">
-        <img id="juice-mode" src="/images/juice.png" alt="" />
+      <div id="juice-mode">
+        <div>
+          <img src="/images/juice.png" alt="" />
+        </div>
+
+        <h2>Juice Mode. Powered by Pure Imagination</h2>
 
         <p id="juice-mode--text">
           When your battery runs low, Pineapple asks for one thing.. juice. Not
@@ -89,19 +119,40 @@
           charging port. There have been claims this does nothing, but we at
           pineapple swear it helps.
         </p>
+
+        <button class="story-section--button">Learn More</button>
       </div>
 
       <!-- third story -->
-      <div id="iris">
-        <img id="pineapple-core" src="/images/cloud.png" alt="" />
+      <div id="pineapple-core">
+        <div>
+          <img src="/images/cloud.png" alt="" />
+        </div>
+
+        <h2>The Core Cloud Storage. Hidden Under The Sea</h2>
 
         <p id="pineapple-core--text">
           PineappleCore stores all your files somewhere deep inside the
           Pineapple ecosystem. Where exactly? No one knows. Syncs only on sunny
           days. Backups may be lost during tropical storms.
         </p>
+
+        <button class="story-section--button">Learn More</button>
       </div>
     </section>
+
+    <!-- LAUNCH SECTION -->
+    <section id="launch-countdown" class="launch-section">
+      <h2>Launching In</h2>
+
+      <div
+        id="launch-countdown--container"
+        class="launch-countdown--container"
+      ></div>
+    </section>
+
+    <!-- STAY UPDATED SECTION -->
+    <section id="stay-updated" class="stay-updated--section"></section>
 
     <script src="js/index.js" defer></script>
   </body>

@@ -66,8 +66,10 @@ ol[role="list"] {
 a {
   text-decoration-skip-ink: auto;
   color: $gunmetal;
+  text-decoration: none;
 }
-â€‹a:hover,
+
+a:hover,
 a:focus-visible {
   color: $rich-black-2;
 }
@@ -88,7 +90,8 @@ select {
 }
 
 /* No border or outline on buttons */
-button {
+button,
+a {
   outline: none;
   border: none;
   cursor: pointer;
@@ -111,8 +114,6 @@ button {
   }
 }
 
-/* --- ANIMATIONS --- */
-
 /* --- MODAL --- */
 .hide-modal {
   display: none;
@@ -124,6 +125,8 @@ button {
   width: 100%;
   padding: 30px;
   z-index: 100;
+
+  gap: 2rem;
 
   .shader {
     position: absolute;
@@ -154,13 +157,44 @@ button {
     }
   }
 
-  p {
+  .modal-text {
     position: relative;
     font-size: 18px;
     letter-spacing: 0.1rem;
     z-index: 100;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .countdown-container {
+    position: relative;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    .modal-countdown {
+      height: 65px;
+      width: 65px;
+      border-radius: 10px;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        color: $rich-black-4;
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+    }
   }
 }
 
@@ -228,45 +262,151 @@ button {
 /* --- STORY SECTION | PARALLAX --- */
 .story-section {
   position: relative;
-  height: 310vh;
+  height: 300vh;
   width: 100%;
-  border: 1px solid red;
 
   div {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 20px 13px;
     gap: 5px;
     height: 100vh;
     width: 100%;
     background-color: $rich-black-3;
 
-    img {
-      object-fit: cover;
+    div {
+      height: 50%;
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
     }
   }
 
-  div:first-child {
+  h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  & > div:first-child {
     position: sticky;
     top: 0;
   }
 
-  div:nth-child(2) {
+  & > div:nth-child(2) {
     position: sticky;
     top: 0;
     z-index: 10;
   }
 
-  div:last-child {
-    position: sticky;
-    top: 0;
+  & > div:last-child {
     z-index: 20;
+    position: relative;
   }
+
+  .story-section--button {
+    padding: 0.4rem 0.65rem;
+    border-radius: 6px;
+    font-size: 14px;
+    background: linear-gradient(110deg, $purple-color 40%, $blue-color 100%);
+    color: white;
+  }
+}
+
+/* --- COUNTDOWN SECTION --- */
+.launch-section {
+  position: relative;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* --- TOP BORDER --- */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.05rem;
+    pointer-events: none;
+
+    background: linear-gradient(
+      to right,
+      rgba($purple-color, 0.1),
+      rgba($purple-color, 0.7),
+      rgba($purple-color, 0.1)
+    );
+  }
+
+  /* --- BOTTOM BORDER --- */
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    height: 0.05rem;
+    pointer-events: none;
+
+    background: linear-gradient(
+      to right,
+      rgba($purple-color, 0.1),
+      rgba($purple-color, 0.7),
+      rgba($purple-color, 0.1)
+    );
+  }
+
+  h2 {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .launch-countdown--container {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    padding: 0 20px;
+
+    .countdown-box {
+      width: calc(100% / 4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+
+      .timer-box {
+        background-color: $blue-color;
+        border-radius: 10px;
+        height: 60px;
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+/* --- STAY UPDATED SECTION --- */
+.stay-updated--section {
+  min-height: 80vh;
 }
 
 /* --- RESPONSIVE DESIGN --- */
 /* --- TABLET --- */
 @media screen and (min-width: 768px) {
+  /* --- HERO --- */
   .hero-section h1 {
     font-size: 2rem;
     max-width: 70%;
@@ -280,10 +420,36 @@ button {
   .hero-section--button {
     padding: 0.75rem 0.85rem;
   }
+
+  /* --- STORY --- */
+  .story-section > div {
+    padding: 20px 50px;
+  }
+
+  .story-section > div div {
+    height: 70%;
+  }
+
+  .story-section > div h2 {
+    font-size: 3rem;
+    position: relative;
+  }
+
+  .story-section > div p {
+    font-size: 1.3rem;
+    position: relative;
+  }
+
+  .story-section .story-section--button {
+    padding: 0.65rem 0.75rem;
+    font-size: 15px;
+    position: relative;
+  }
 }
 
 /* --- DESKTOP --- */
 @media screen and (min-width: 1024px) {
+  /* --- HERO --- */
   .hero-section h1 {
     font-size: 3rem;
     max-width: 60%;
@@ -303,5 +469,42 @@ button {
     img {
       object-fit: contain;
     }
+  }
+
+  /* --- STORY --- */
+  .story-section > div {
+    padding: 20px 10rem;
+  }
+
+  .story-section > div div {
+    height: 70%;
+  }
+
+  .story-section > div div img {
+    object-fit: contain;
+  }
+
+  .story-section > div h2 {
+    font-size: 2rem;
+    position: relative;
+    bottom: 2rem;
+  }
+
+  .story-section > div p {
+    font-size: 1.5rem;
+    font-weight: 100;
+    position: relative;
+    bottom: 2rem;
+    text-align: center;
+  }
+
+  .story-section .story-section--button {
+    padding: 1rem 5rem;
+    font-size: 15px;
+    position: relative;
+    bottom: 2rem;
+    align-self: flex-start;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
