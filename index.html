@@ -18,9 +18,9 @@
 
       <!-- close button -->
       <button
-        id="close-modal--button"
-        class="close-modal--button"
-        onclick="closeModal()"
+        id="close-preOrderModal--button"
+        class="close-preOrderModal--button"
+        onclick="closePreOrderModal()"
       >
         <div id="top-bar"></div>
         <div id="bottom-bar"></div>
@@ -79,7 +79,7 @@
       <button
         id="hero-button"
         class="hero-section--button"
-        onclick="preOrder()"
+        onclick="openPreOrderModal()"
       >
         Pre-order Now
       </button>
@@ -143,7 +143,7 @@
 
     <!-- LAUNCH SECTION -->
     <section id="launch-countdown" class="launch-section">
-      <h2>Launching In</h2>
+      <h2 class="launch-section--title">Launching In</h2>
 
       <div
         id="launch-countdown--container"
@@ -152,7 +152,19 @@
     </section>
 
     <!-- STAY UPDATED SECTION -->
-    <section id="stay-updated" class="stay-updated--section"></section>
+    <section id="stay-updated" class="stay-updated--section">
+      <h2>Stay Updated</h2>
+
+      <p>Sign up to see the latest news and updates</p>
+
+      <div class="stay-updated--section---email">
+        <input type="email" placeholder="Email Address" />
+
+        <button id="notify-me--button" onclick="notification()">
+          Notify Me
+        </button>
+      </div>
+    </section>
 
     <script src="js/index.js" defer></script>
   </body>

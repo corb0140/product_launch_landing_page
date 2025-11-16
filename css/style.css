@@ -285,13 +285,14 @@ a {
   color: white;
 }
 
-/* --- COUNTDOWN SECTION --- */
+/* --- LAUNCH SECTION --- */
 .launch-section {
   position: relative;
-  height: 30vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0.85rem 0;
   /* --- TOP BORDER --- */
 }
 .launch-section::before {
@@ -318,13 +319,13 @@ a {
   pointer-events: none;
   background: linear-gradient(to right, rgba(84, 49, 183, 0.1), rgba(84, 49, 183, 0.7), rgba(84, 49, 183, 0.1));
 }
-.launch-section h2 {
+.launch-section .launch-section--title {
   margin-top: 1rem;
   font-size: 1.5rem;
   font-weight: 700;
 }
 .launch-section .launch-countdown--container {
-  height: 50%;
+  height: auto;
   width: 100%;
   display: flex;
   gap: 1rem;
@@ -349,10 +350,47 @@ a {
   font-size: 1.8rem;
   font-weight: 700;
 }
+.launch-section .launch-countdown--container .countdown-box .timer-text {
+  font-size: 0.65rem;
+}
 
 /* --- STAY UPDATED SECTION --- */
 .stay-updated--section {
-  min-height: 80vh;
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+.stay-updated--section h2 {
+  margin: 3rem 0 0.25rem 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.stay-updated--section p {
+  margin: 0;
+}
+.stay-updated--section---email {
+  width: 100%;
+  margin-top: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.55rem;
+}
+.stay-updated--section---email input[type=email] {
+  flex-grow: 1;
+  border-radius: 6px;
+  outline: none;
+  border: none;
+  font-size: 14px;
+  padding-left: 0.75rem;
+}
+.stay-updated--section---email button {
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  font-size: 14px;
+  background: linear-gradient(110deg, #5431b7 40%, #1647eb 100%);
+  color: white;
 }
 
 /* --- RESPONSIVE DESIGN --- */
@@ -371,9 +409,6 @@ a {
     padding: 0.75rem 0.85rem;
   }
   /* --- STORY --- */
-  .story-section > div {
-    padding: 20px 50px;
-  }
   .story-section > div div {
     height: 70%;
   }
@@ -389,6 +424,30 @@ a {
     padding: 0.65rem 0.75rem;
     font-size: 15px;
     position: relative;
+  }
+  /* --- LAUNCH --- */
+  .launch-section .launch-section--title {
+    font-size: 2rem;
+  }
+  .launch-section .launch-countdown--container .countdown-box .timer-box {
+    height: 110px;
+    width: 70%;
+  }
+  .launch-section .launch-countdown--container .countdown-box .timer-text {
+    font-size: 1.2rem;
+  }
+  /* --- STAY UPDATED --- */
+  .stay-updated--section {
+    padding: 0 7rem;
+  }
+  .stay-updated--section h2 {
+    font-size: 2.5rem;
+  }
+  .stay-updated--section p {
+    font-size: 20px;
+  }
+  .stay-updated--section button {
+    padding: 0.5rem 0.65rem;
   }
 }
 /* --- DESKTOP --- */
@@ -413,7 +472,9 @@ a {
   }
   /* --- STORY --- */
   .story-section > div {
-    padding: 20px 10rem;
+    display: flex;
+    align-items: center;
+    justify-items: center;
   }
   .story-section > div div {
     height: 70%;
@@ -427,11 +488,12 @@ a {
     bottom: 2rem;
   }
   .story-section > div p {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 100;
     position: relative;
     bottom: 2rem;
     text-align: center;
+    max-width: 60rem;
   }
   .story-section .story-section--button {
     padding: 1rem 5rem;
@@ -441,6 +503,32 @@ a {
     align-self: flex-start;
     left: 50%;
     transform: translateX(-50%);
+  }
+  /* --- LAUNCH --- */
+  .launch-section {
+    padding: 1.5rem 0;
+  }
+  .launch-section .launch-countdown--container {
+    padding: 0 30rem;
+    gap: 2rem;
+  }
+  .launch-section .launch-countdown--container .countdown-box .timer-box {
+    height: 95px;
+    width: 100%;
+    font-size: 2.5rem;
+  }
+  .launch-section .launch-countdown--container .countdown-box .timer-text {
+    font-size: 0.95rem;
+  }
+  /* --- STAY UPDATED --- */
+  .stay-updated--section {
+    padding: 0 30rem;
+  }
+  .stay-updated--section p {
+    font-size: 17px;
+  }
+  .stay-updated--section button {
+    padding: 0.5rem 0.65rem;
   }
 }
 

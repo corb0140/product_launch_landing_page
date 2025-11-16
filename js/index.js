@@ -3,9 +3,11 @@
 const preOrderModal = document.getElementById("pre-order--modal");
 const topBar = document.getElementById("top-bar");
 const bottomBar = document.getElementById("bottom-bar");
-const closeModalBtn = document.getElementById("close-modal--button");
+const closePreOrderModalBtn = document.getElementById(
+  "close-preOrderModal--button"
+);
 
-function preOrder() {
+function openPreOrderModal() {
   preOrderModal.classList.remove("hide-modal");
 
   gsap.set(preOrderModal, { x: "100%" });
@@ -16,15 +18,15 @@ function preOrder() {
     .to(preOrderModal, { x: "0", duration: 1 })
     .to(topBar, { rotate: 45, duration: 0.6 })
     .to(bottomBar, { rotate: -45, duration: 0.6 }, "<")
-    .to(closeModalBtn, { rotate: 360, duration: 0.8 }, "<0.5");
+    .to(closePreOrderModalBtn, { rotate: 360, duration: 0.8 }, "<0.5");
 }
 
 /* ------ CLOSE MODAL BUTTON ------ */
-function closeModal() {
+function closePreOrderModal() {
   const closeModalTL = gsap.timeline({ defaults: { ease: "power2.inOut" } });
 
   closeModalTL
-    .to(closeModalBtn, { rotate: 0, duration: 0.8 })
+    .to(closePreOrderModalBtn, { rotate: 0, duration: 0.8 })
     .to(topBar, { rotate: 0, duration: 0.6 })
     .to(bottomBar, { rotate: 0, duration: 0.6 }, "<")
     .to(preOrderModal, {
@@ -140,7 +142,7 @@ const countdownArray = [
   { text: "Hours", number: 16 },
 ];
 
-countdownArray.forEach((countdown, index) => {
+countdownArray.forEach((countdown) => {
   const countdownBox = document.createElement("div");
   const timerText = document.createElement("div");
   const timerBox = document.createElement("span");
@@ -156,3 +158,11 @@ countdownArray.forEach((countdown, index) => {
   countdownBox.append(timerText);
   launchCountdownContainer.append(countdownBox);
 });
+
+/* --- STAY UPDATED--- */
+/* --- NOTIFY ME BUTTON --- */
+const notifyMeBtn = document.getElementById("notify-me--button");
+
+function notification() {
+  window.open("https://www.youtube.com/watch?v=1-q-nClpmWQ", "_blank");
+}
